@@ -14,14 +14,17 @@ graph TD
     subgraph "Communication Layer"
         B -->|Routes Through| C[Twilio VoIP/SMS]
         C -->|Incoming Calls| D[Call Handling System]
+        C -->|Missed Calls| D1[Missed Call Detection]
         C -->|Incoming Texts| E[Messaging System]
     end
     
     subgraph "Processing Layer"
         D -->|Streams Audio| F[Whisper/AssemblyAI]
         F -->|Generates| G[Call Transcripts]
+        D1 -->|Triggers| J1[Automated Follow-up]
         G --> H[LLM Engine]
         E --> H
+        J1 --> H
         H -->|Produces| I[Summaries]
         H -->|Generates| J[AI Follow-ups]
         H -->|Creates| K[Analytics & Insights]
@@ -52,6 +55,8 @@ graph TD
     style H fill:#e2f0cb,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
     style I fill:#e2f0cb,stroke:#333,stroke-width:2px
     style J fill:#e2f0cb,stroke:#333,stroke-width:2px
+    style J1 fill:#e2f0cb,stroke:#333,stroke-width:2px
+    style D1 fill:#d4f1f9,stroke:#333,stroke-width:2px
     style K fill:#e2f0cb,stroke:#333,stroke-width:2px
     style L fill:#fce8b2,stroke:#333,stroke-width:2px
     style M fill:#f9f9f9,stroke:#333,stroke-width:2px
