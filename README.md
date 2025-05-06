@@ -66,32 +66,37 @@ graph TD
     style Q fill:#f2d7ee,stroke:#333,stroke-width:2px
 ```
 
-Breakdown by Components
-1. Communication Layer
-We'd use Twilio for VoIP calls and SMS. It handles incoming/outgoing calls, voicemail, missed call detection, and routing logic.
-2. Transcription Engine
-We'd stream audio (via Twilio Media Streams) to an external transcription model like Whisper or AssemblyAI, then store the text.
-3. AI Automation
-Once we have the transcript, we'd use a language model (like GPT-4 or Claude) to:
+## Breakdown by Components
 
-Summarize calls
-Generate follow-ups
-Automatically respond to missed calls with personalized messages
-Convert voicemails to text messages
+### 1. Communication Layer
+We'd use **Twilio** for VoIP calls and SMS. It handles incoming/outgoing calls, voicemail, **missed call detection**, and routing logic.
 
-4. Inbox UI
-Build a unified web-based inbox using React or Vue + FastAPI backend, where users can see all calls, texts, and AI-suggested responses. This would include responsive design for mobile access and missed opportunity alerts.
-5. Backend Infrastructure
-Use PostgreSQL for metadata, Qdrant for vector search, and host everything on Cloud Run, Heroku, or Kubernetes depending on scale.
-6. Integration & Security
+### 2. Transcription Engine
+We'd stream audio (via Twilio Media Streams) to an external transcription model like **Whisper or AssemblyAI**, then store the text.
+
+### 3. AI Automation
+Once we have the transcript, we'd use a **language model** (like GPT-4 or Claude) to:
+* Summarize calls
+* Generate follow-ups
+* **Automatically respond to missed calls** with personalized messages
+* Convert voicemails to text messages
+
+### 4. Inbox UI
+Build a unified web-based inbox using **React or Vue + FastAPI backend**, where users can see all calls, texts, and AI-suggested responses. This would include responsive design for mobile access and **missed opportunity alerts**.
+
+### 5. Backend Infrastructure
+Use **PostgreSQL for metadata**, **Qdrant for vector search**, and host everything on **Cloud Run, Heroku, or Kubernetes** depending on scale.
+
+### 6. Integration & Security
 Implement secure API endpoints for integration with existing business systems (CRMs, ticketing systems) and ensure end-to-end encryption for all communications.
-Timeline & Team
-For an MVP, a small team of 2–3 devs could ship a working version in about 5–6 weeks:
 
-Week 1–2: Twilio setup + routing + missed call detection
-Week 3–4: Inbox UI + transcription
-Week 5–6: AI integrations + polish
+## Timeline & Team
+For an MVP, a small team of 2–3 devs could ship a working version in about **5–6 weeks**:
+- Week 1–2: Twilio setup + routing + **missed call detection**
+- Week 3–4: Inbox UI + transcription
+- Week 5–6: AI integrations + polish
 
 The system would be designed with scalability in mind, able to efficiently grow from dozens to thousands of users through containerization and load balancing.
-Conclusion
-Since I've already built GenAI products with messaging, vector search, and AI responses, I could prototype the core AI layer quickly and iterate based on user feedback. The missed call functionality would be a priority feature as it directly impacts revenue recovery.
+
+## Conclusion
+Since I've already built GenAI products with messaging, vector search, and AI responses, I could prototype the core AI layer quickly and iterate based on user feedback. **The missed call functionality would be a priority feature as it directly impacts revenue recovery.**
