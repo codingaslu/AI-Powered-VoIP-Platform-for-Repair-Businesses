@@ -4,8 +4,62 @@
 To build this platform, we need to combine three main layers: communication infrastructure (VoIP & messaging), an AI engine for automation, and a clean user interface to manage everything.
 
 ## System Architecture
-
-![AI-Powered VoIP Platform Architecture](architecture_diagram.png)
+```mermaid
+graph TD
+    subgraph "End Users"
+        A[Customers] -->|Call or Text| B[Your Business Number]
+        M[Business Staff] -->|Access Platform| L[Web/Mobile Interface]
+    end
+    
+    subgraph "Communication Layer"
+        B -->|Routes Through| C[Twilio VoIP/SMS]
+        C -->|Incoming Calls| D[Call Handling System]
+        C -->|Incoming Texts| E[Messaging System]
+    end
+    
+    subgraph "Processing Layer"
+        D -->|Streams Audio| F[Whisper/AssemblyAI]
+        F -->|Generates| G[Call Transcripts]
+        G --> H[LLM Engine]
+        E --> H
+        H -->|Produces| I[Summaries]
+        H -->|Generates| J[AI Follow-ups]
+        H -->|Creates| K[Analytics & Insights]
+    end
+    
+    subgraph "Interface Layer"
+        I --> L
+        J --> L
+        K --> L
+        E --> L
+        G --> L
+    end
+    
+    subgraph "Backend Infrastructure"
+        L -->|API Calls| N[FastAPI Backend]
+        N --> O[PostgreSQL DB]
+        N --> P[Qdrant Vector DB]
+        N -->|Integration| Q[External CRMs/Systems]
+    end
+    
+    style A fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style B fill:#d4f1f9,stroke:#333,stroke-width:2px
+    style C fill:#d4f1f9,stroke:#333,stroke-width:2px
+    style D fill:#d4f1f9,stroke:#333,stroke-width:2px
+    style E fill:#d4f1f9,stroke:#333,stroke-width:2px
+    style F fill:#e2f0cb,stroke:#333,stroke-width:2px
+    style G fill:#e2f0cb,stroke:#333,stroke-width:2px
+    style H fill:#e2f0cb,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+    style I fill:#e2f0cb,stroke:#333,stroke-width:2px
+    style J fill:#e2f0cb,stroke:#333,stroke-width:2px
+    style K fill:#e2f0cb,stroke:#333,stroke-width:2px
+    style L fill:#fce8b2,stroke:#333,stroke-width:2px
+    style M fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style N fill:#f2d7ee,stroke:#333,stroke-width:2px
+    style O fill:#f2d7ee,stroke:#333,stroke-width:2px
+    style P fill:#f2d7ee,stroke:#333,stroke-width:2px
+    style Q fill:#f2d7ee,stroke:#333,stroke-width:2px
+```
 
 ## Component Breakdown
 
