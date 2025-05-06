@@ -91,7 +91,7 @@ Use **PostgreSQL for metadata**, **Qdrant for vector search**, and host everythi
 Implement secure API endpoints for integration with existing business systems (CRMs, ticketing systems) and ensure end-to-end encryption for all communications.
 
 ## Timeline & Team
-For an MVP, a small team of 2–3 devs could ship a working version in about **5–6 weeks**:
+For an MVP, we could ship a working version in about **5–6 weeks**:
 - Week 1–2: Twilio setup + routing + **missed call detection**
 - Week 3–4: Inbox UI + transcription
 - Week 5–6: AI integrations + polish
