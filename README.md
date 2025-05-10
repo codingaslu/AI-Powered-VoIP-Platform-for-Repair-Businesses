@@ -82,10 +82,10 @@ Once we have the transcript, we'd use a **language model** (like GPT-4 or Claude
 * Convert voicemails to text messages
 
 ### 4. Inbox UI
-Build a unified web-based inbox using **React or Vue + FastAPI backend**, where users can see all calls, texts, and AI-suggested responses. This would include responsive design for mobile access and **missed opportunity alerts**.
+Build a unified web-based inbox using **React + VITE + FastAPI backend**, where users can see all calls, texts, and AI-suggested responses. This would include responsive design for mobile access and **missed opportunity alerts**.
 
 ### 5. Backend Infrastructure
-Use **PostgreSQL for metadata**, **Qdrant for vector search**, and host everything on **Cloud Run, Heroku, or Kubernetes** depending on scale.
+Use **Mongodb** for database, **Qdrant for vector search**, and host everything on **Cloud Run, Heroku, or Kubernetes** depending on scale.
 
 ### 6. Integration & Security
 Implement secure API endpoints for integration with existing business systems (CRMs, ticketing systems) and ensure end-to-end encryption for all communications.
